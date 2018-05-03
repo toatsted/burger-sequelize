@@ -1,0 +1,74 @@
+<link rel="stylesheet" href="/assets/css/index.css">
+
+<div class="container">
+	<div class="row">
+		<div class="col-6">
+			<h2 class="text-center text-muted">
+				Fresh burgers
+			</h2>
+		</div>
+		<div class="col-6">
+			<h2 class="text-center text-muted">
+				Eaten burgers
+			</h2>		
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-6">
+			<ul class="list-group">
+			{{#each burgers}}
+				{{#unless eaten}}
+				<li class="list-group-item">
+					<div class="row">
+						<div class="col-8">
+							<a href="/{{this.id}}">
+								<p class="text-secondary">
+									<b>id:</b> <span class="text-primary">{{this.id}}</span> <br>
+									<b>name:</b> <span class="text-primary">{{this.name}}</span>
+								</p>
+							</a>
+						</div>
+						<div class="col-4">
+							<button data-id={{this.id}} class="eatBtn btn btn-danger"><i class="fas fa-utensils"></i> eat</button>
+						</div>
+					</div>
+				</li>
+				{{/unless}}
+			{{/each}}
+			</ul>
+		</div>
+		<div class="col-6">
+			<ul class="list-group">
+			{{#each burgers}}
+				{{#if eaten}}
+				<li class="list-group-item">
+					<div class="row">
+						<div class="col-8">
+							<a href="/{{this.id}}">
+								<p class="text-secondary">
+									<b>id:</b> <span class="text-primary">{{this.id}}</span> <br>
+									<b>name:</b> <span class="text-primary">{{this.name}}</span>
+								</p>
+							</a>
+						</div>
+						<div class="col-4">
+							<button data-id={{this.id}} class="delBtn btn btn-danger"><i class="fas fa-trash"></i> delete</button>
+						</div>
+					</div>
+				</li>
+				{{/if}}
+			{{/each}}
+			</ul>
+		</div>	
+	</div>
+
+	<form id="addBurger">
+		<div class="form-group">
+			<label for="burgerInput"><h3 class="text-muted">Add a burger</h3></label>
+			<input type="text" class="form-control" id="burgerInput" placeholder="hamburger" aria-discribedby="burgerHelp" autocomplete="off">	
+			<small id="burgerHelp" class="form-text text-muted">Enter the name of your burger</small>
+		</div>
+		<button type="submit" class="btn btn-danger"><i class="fas fa-envelope"></i> submit</button>
+	</form>
+</div>
+<script src="/assets/js/index.js"></script>

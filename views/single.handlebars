@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="/assets/css/single.css">
+
+<div class="container">
+	<div class="jumbotron">
+		<div class="row">
+			<div class="col-10">
+				<h1 class="display-4">Name: {{burger.name}}</h1>
+			</div>
+			<div class="col-2">
+				<a href="/" class="btn btn-danger">Home</a>
+			</div>
+		</div>
+		<hr class="my-4">
+		<p class="lead">ID: {{burger.id}}</p>
+		{{#if burger.eaten}}
+			<p class="lead">Eaten: True</p>
+		{{else}}
+			<p class="lead">Eaten: False</p>
+		{{/if}}
+
+	</div>
+</div>
