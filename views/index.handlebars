@@ -17,7 +17,7 @@
 		<div class="col-6">
 			<ul class="list-group">
 			{{#each burgers}}
-				{{#unless eaten}}
+				{{#unless this.eaten}}
 				<li class="list-group-item">
 					<div class="row">
 						<div class="col-8">
@@ -40,7 +40,7 @@
 		<div class="col-6">
 			<ul class="list-group">
 			{{#each burgers}}
-				{{#if eaten}}
+				{{#if this.eaten}}
 				<li class="list-group-item">
 					<div class="row">
 						<div class="col-8">
@@ -65,7 +65,7 @@
 	<form id="addBurger">
 		<div class="form-group">
 			<label for="burgerInput"><h3 class="text-muted">Add a burger</h3></label>
-			<input type="text" class="form-control" id="burgerInput" placeholder="hamburger" aria-discribedby="burgerHelp" autocomplete="off">	
+			<input type="text" class="form-control" id="burgerInput" placeholder="burger" aria-discribedby="burgerHelp" autocomplete="off">	
 			<small id="burgerHelp" class="form-text text-muted">Enter the name of your burger</small>
 		</div>
 		<button type="submit" class="btn btn-danger"><i class="fas fa-envelope"></i> submit</button>

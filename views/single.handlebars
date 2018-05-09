@@ -2,21 +2,29 @@
 
 <div class="container">
 	<div class="jumbotron">
-		<div class="row">
-			<div class="col-10">
-				<h1 class="display-4">Name: {{burger.name}}</h1>
+		<form id="updateForm" data-id={{id}}>
+			<div class="form-group">
+				<label class="display-1" for="nameInput">Name: </label>
+				<input autocomplete="off" type="text" id="nameInput" class="form-control" value={{name}}>
+				<hr class="my-4">
 			</div>
-			<div class="col-2">
-				<a href="/" class="btn btn-danger">Home</a>
+			<div class="form-group">
+				<p class="display-4" id="idInput">Id: {{id}}</p>
 			</div>
-		</div>
-		<hr class="my-4">
-		<p class="lead">ID: {{burger.id}}</p>
-		{{#if burger.eaten}}
-			<p class="lead">Eaten: True</p>
-		{{else}}
-			<p class="lead">Eaten: False</p>
-		{{/if}}
-
+			<br>
+			<div class="form-group">
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="radio" name="eatenRadio" id="eaten" value="1" {{#if eaten}}checked{{/if}}>
+				  <label class="form-check-label" for="eaten">Eaten</label>
+				</div>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="radio" name="eatenRadio" id="notEaten" value="0" {{#unless eaten}}checked{{/unless}}>
+				  <label class="form-check-label" for="notEaten">Not eaten</label>
+				</div>
+			</div>
+			<button type="submit" class="btn btn-danger">Submit</button>
+		</form>
 	</div>
 </div>
+
+<script src="/assets/js/single.js"></script>
